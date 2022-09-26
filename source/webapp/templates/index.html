@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+<a class="nav-link active" href="{% url 'todo_add' %}">Task add</a>
+{% endblock %}
+
+{% block content %}
+      <main role="main" class="inner cover">
+        <p class="lead">
+            {% for task in tasks %}
+            <h2>Task: {{ task.title }}</h2>
+            <h2>Status: {{ task.status }}</h2>
+            <h2>Deadline: {{ task.deadline|default_if_none:"" }}</h2>
+            <a class="detail" href="{% url 'todo_detail' task.pk %}">Подробнее</a>
+            <a href="{% url 'delete' task.pk %}">Удалить</a>
+            <hr>
+            {% endfor %}
+        </p>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Kurentaev Adlet <a href="/">Contacts</a></p>
+        </div>
+      </footer>
+{% endblock %}
