@@ -110,13 +110,17 @@ body {
 
 .form-control {
     display: inline;
-    margin: 20px 0px;
 }
 
 .description{
     margin-top: 20px;
+    width: 249px;
 }
 
 .detail{
     margin-right: 15px;
+}
+
+.price{
+    margin: 10px 0px;
 }
