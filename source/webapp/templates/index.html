@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
 
-{% block menu %}
-<a class="nav-link active" href="{% url 'todo_add' %}">Task add</a>
-{% endblock %}
-
 {% block content %}
       <main role="main" class="inner cover">
         <p class="lead">
-            {% for task in tasks %}
-            <h2>Task: {{ task.title }}</h2>
-            <h2>Status: {{ task.status }}</h2>
-            <h2>Deadline: {{ task.deadline|default_if_none:"" }}</h2>
-            <a class="detail" href="{% url 'todo_detail' task.pk %}">Подробнее</a>
-            <a href="{% url 'delete' task.pk %}">Удалить</a>
-            <hr>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for product in products %}
+              <div class="col">
+                <div class="card text-bg-dark h-100">
+                  <img src="{{ product.image }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product.title }}</h5>
+                    <p class="card-text">Category: {{ product.category }}</p>
+                    <p class="card-text">Price: {{ product.price }} $</p>
+                  <a href="{% url 'product_detail' product.pk %}" class="btn btn-secondary">Подробнее</a>
+                  <a href="{% url 'delete' product.pk %}" class="btn btn-secondary">Удалить</a>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">added: {{ product.created_at }}</small>
+                  </div>
+                </div>
+              </div>
             {% endfor %}
+            </div>
         </p>
       </main>
 
