@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from webapp.models import TasksList
+from webapp.models import Products
 
 
 def index_view(request):
-    tasks = TasksList.objects.all()
+    products = Products.objects.all()
     context = {
-        "tasks": tasks
+        "products": products
     }
     return render(request, "index.html", context)
 
