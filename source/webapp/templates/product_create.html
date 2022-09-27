@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Product add
+{% endblock %}
+
+{% block content %}
+      <main role="main" class="inner cover">
+        <p class="lead">
+            <form action="/product_list/add/" method="POST">
+        {% csrf_token %}
+        <div class="form">
+          <div class="form_row">
+            <table>
+              <tr>
+                <td><lable for="title">Title: </lable></td>
+                <td><input id ="title" name ="title" type = "text" required></td>
+              </tr>
+              <tr>
+                <td><lable for="description">Description: </lable></td>
+                <td><textarea class="description" id ="description" name ="description" type = "text"></textarea></td>
+              </tr>
+              <tr>
+                <td><label>Category</label></td>
+                <td>
+                  <select name="categories" class="form-control">
+                    {% for c in category %}
+                        <option>{{ c.category }}</option>
+                    {%endfor%}
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td><lable for="price">Price: </lable></td>
+                <td><input class="price" id ="price" name ="price" type = "number" step="1" min="0" placeholder="0" value="" required></td>
+              </tr>
+              <tr>
+                <td><lable for="image">Image: </lable></td>
+                <td><input id ="image" name ="image" type = "text" value=""></td>
+              </tr>
+              <tr>
+                <td>
+                </td>
+                <td><input type="submit"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+    </form>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Kurentaev Adlet <a href="/">Contacts</a></p>
+        </div>
+      </footer>
+{% endblock %}
+<!--<!DOCTYPE html>-->
+<!--{% load static %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="{% static '/style.css' %}">-->
+<!--    <title>Create Article</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
