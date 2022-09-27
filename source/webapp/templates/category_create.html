@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Category create
+{% endblock %}
+
+{% block content %}
+      <main role="main" class="inner cover">
+        <p class="lead">
+            <form action="/category_list/add/" method="POST">
+        {% csrf_token %}
+        <div class="form">
+          <div class="form_row">
+            <table>
+              <tr>
+                <td><label>Category</label></td>
+                <td><input id ="category" name ="category" type = "text" required></td>
+              </tr>
+              <tr>
+                <td><lable for="description">Description: </lable></td>
+                <td><textarea class="description" id ="description" name ="description" type = "text"></textarea></td>
+              </tr>
+              <tr>
+                <td>
+                </td>
+                <td><input type="submit"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+    </form>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Kurentaev Adlet <a href="/">Contacts</a></p>
+        </div>
+      </footer>
+{% endblock %}
